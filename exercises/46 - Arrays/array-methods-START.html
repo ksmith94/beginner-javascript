@@ -45,35 +45,111 @@
     */
 
     // Array.of();
+    const array1 = Array.of(7, 18, 40);
+    console.log(array1);
 
     // Make a function that creates a range from x to y with Array.from();
+    function createRange(start, end) {
+          const range = Array.from( {length: end - start + 1 }, function(item, index) {
+          return index + start;
+        });
+      return range;
+      }
+    const myRange = createRange(3, 7);
+        
+    array2 = Array.from(array1, x => x * 2);
+    console.log(array2);
+    arrayToppings = Array.from(toppings);
+    console.log(arrayToppings);
 
     // Check if the last array you created is really an array with Array.isArray();
-
+    console.log(Array.isArray(myRange));
+    console.log(Array.isArray(array2));
+    console.log(Array.isArray(arrayToppings));
     // Take the meats object and make three arrays with Object.entries(), Object.keys, Object.values()
+    arrayMeats = Object.entries(meats);
+    console.log(arrayMeats);
+    arrayMeats2 = Object.keys(meats);
+    console.log(arrayMeats2);
+    arrayMeats3 = Object.values(meats);
+    console.log(arrayMeats3);
+
+    Object.entries(meats).forEach(([key, value]) => {
+        // const key = entry[0];
+        // const value = entry[1];
+        // const [key, value] = entry;
+        console.log(key, value);
+      });
 
     /*
       Instance Methods
     */
 
     // Display all bun types with " or " - use join()
+    console.log(buns.join(' or '));
 
     // We have a string "hot dogs,hamburgers,sausages,corn" - use split() to turn it into a string
+    const foodString = 'hot dogs,hamburgers,sausages,corn';
+    const foodStringArray = foodString.split(',');
+    console.log(foodStringArray);
 
-    // take the last item off toppings with pop()
-    // add it back with push()
-    // take the first item off toppings with shift()
-    // add it back in with unshift()
-    // Do the last four,but immutable (with spreads and new variables)
-
+    // //take the last items off toppings with pop()
+    // toppings.pop();
+    // console.log(toppings);
+    // //add it back with push()
+    // toppings.push('Cheese');
+    // console.log(toppings);
+    // //take the first item off toppings with shift()
+    // toppings.shift();
+    // console.log(toppings);
+    // //add it back in with unshift()
+    // toppings.unshift('Mushrooms');
+    // console.log(toppings);
+    // //Do the previous four, but immutable (with spreads and new variables)
+    const toppingsPop = toppings.slice(0, toppings.length -1);
+    console.log(toppingsPop);
+    const toppingsPush = [...toppingsPop.slice(0), 'Cheese'];
+    console.log(toppingsPush);
+    const toppingsShift = toppings.slice(1);
+    console.log(toppingsShift);
+    const toppingsUnshift = ['Mushrooms', ...toppingsShift.slice(0)];
+    console.log(toppingsUnshift);
 
     // Make a copy of the toppings array with slice()
+    const toppingsSlice = toppings.slice(0);
+    console.log(toppingsSlice);
+
     // Make a copy of the toppings array with a spread
+    toppingsSpread = [...toppings]
+    console.log(toppingsSpread);
+
     // take out items 3 to 5 of your new toppings array with splice()
+    toppingsSpread.splice(2, 3);
+    console.log(toppingsSpread);
+
     // find the index of Avocado with indexOf() / lastIndexOf()
+    console.log(toppings.indexOf('Avocado'));
+    const wes = {name: 'wes'};
+    const people = [{name: 'scott'}, wes];
+    console.log(people.indexOf(wes));
+    console.log(toppings.lastIndexOf('Avocado'));
+
     // Check if hot sauce is in the toppings with includes()
+    console.log(toppings.includes('Hot Sauce'));
+
+    const isInToppings = toppings.includes('Hot Sauce');
+
     // add it if it's not
+    // const toppingsHotSauce = [...toppings.slice(0), 'Hot Sauce'];
+    // console.log(toppingsHotSauce);
+    if(!isInToppings) {
+      toppings.push('Hot Sauce');
+    }
+    console.log(toppings);
+
     // flip those toppings around with reverse()
+    const toppingsReversed = [...toppings].reverse();
+    console.log(toppingsReversed);
 
     /*
       Callback Methods
