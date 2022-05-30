@@ -156,15 +156,81 @@
     */
 
     // find the first rating that talks about a burger with find()
+    // function findBurgRating(singleFeedback) {
+    //   return singleFeedback.comment.includes('burg');
+    // }
+    
+    // const findBurgRating = (singleFeedback) => singleFeedback.comment.includes('burg');
+    // const findSmoothieRating = (singleFeedback) => singleFeedback.comment.includes('Smoothie');
+
+    function findByWord(word) {
+      return function(singleFeedback) {
+        return singleFeedback.comment.includes(word);
+      }
+    }
+
+    // const util {
+    //   findBurgRating: function (singleFeedback) {
+    //     return singleFeedback.comment.includes('burg');
+    //   }
+    // }
+
+    const burgerComment = feedback.find(findByWord('burg'));
+    const smoothieComment = feedback.find(findByWord('smoothie'));
+
+    console.log(burgerComment);
+
     // find all ratings that are above 2 with filter()
+
+    function filterByMinRating(minRating) {
+      return function(singleFeedback) {
+        return (singleFeedback.rating > minRating);
+      }
+    }
+    const goodRating = feedback.filter(filterByMinRating(2));
+    console.log(goodRating);
+
     // find all ratings that talk about a burger with filter()
+    const mentionsBurger = feedback.filter(findByWord('burg'));
+    console.table(mentionsBurger);
+
     // Remove the one star rating however you like!
+    
+    const overOne = feedback.filter(filterByMinRating(1));
+    console.log(overOne);
 
     // check if there is at least 5 of one type of meat with some()
+    const atLeastFiveOfSomeMeat = arrayMeats3.some(meatCount => meatCount >= 5);
+    console.log(atLeastFiveOfSomeMeat);
+
     // make sure we have at least 3 of every meat with every()
+    const atLeastThreeOfAllMeat = arrayMeats3.every(meatCount => meatCount >= 3);
+    console.log(atLeastThreeOfAllMeat);
+
     // sort the toppings alphabetically with sort()
+    const numbers = [1, 2, 100, 3, 200, 400, 155];
+    const numbersSorted = numbers.sort(function(firstItem, secondItem) {
+      return firstItem - secondItem;
+    });
+    console.log(numbersSorted);
+
+    const sortedToppings = toppings.sort();
+    console.log(sortedToppings);
+
     // sort the order totals from most expensive to least with .sort()
+    function sortValuesLargeToSmall(value1, value2) {
+      return value2 - value1;
+    }
+    const sortedOrders = orderTotals.sort(sortValuesLargeToSmall);
+    console.log(sortedOrders);
+
     // Sort the prices with sort()
+    const productsSortedByPrice = Object.entries(prices).sort(function(a, b) {
+      const aPrice = a[1];
+      const bPrice = b[1];
+      return bPrice - aPrice;
+    })
+    console.table(Object.fromEntries(productsSortedByPrice));
 
     /*
       Looping Methods (next)
