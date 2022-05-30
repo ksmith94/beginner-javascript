@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback Functions</title>
+</head>
+<body>
+    <script>
+        // const numbers = [1, 2, 3];
+        // for (let i = 0; i < numbers.length; i++) {
+        //     console.log(numbers[i]);
+        // }
+
+        // [1, 2, 3].forEach(function logNumber(n, i, array) {
+        //     console.log(n, i, array);
+        // })
+
+        function logNumber(number) {
+            console.log(number);
+        }
+
+        // function myForEachWithLogNumber(array) {
+        //     for (let i = 0; i < array.length; i++) {
+        //         logNumber(array[i])
+        //     }
+        // }
+
+        // myForEachWithLogNumber([1, 2, 3]);
+
+        // function logNumber(number, i, array) {
+        //     console.log(number, i, array);
+        // }
+
+        // function myForEach(array, callback) {
+        //     for (let i = 0; i < array.length; i++) {
+        //         callback(array[i], i, array);
+        //     }
+        // }
+
+        // myForEach([1, 2, 3], logNumber);
+
+        function add1(n) {
+            console.log(n + 1);
+        }
+
+        // myForEach([1, 2, 3], add1);
+
+        // [1, 2, 3].forEach(logNumber);
+
+        const numbers = [1, 2, 3];
+        function logNumber(number) {
+            console.log(number);
+        }
+        numbers.forEach(logNumber);
+        numbers.forEach(add1);
+    </script>
+</body>
+</html>
