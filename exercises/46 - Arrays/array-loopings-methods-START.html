@@ -215,6 +215,34 @@
     console.log(student);
     console.log(student2);
 
+    //reduce
+    console.clear();
+
+    function tallyNumbers(tally, currentTotal) {
+      console.log(`The current tally is ${tally}`);
+      console.log(`The current total is ${currentTotal}`);
+      console.log('-------');
+      //Return the current tally + amount of this order
+      return tally + currentTotal; 
+    }
+
+    const allOrders = orderTotals.reduce(tallyNumbers, 0);
+    console.log(allOrders);
+
+    function inventoryReducer(totals, item) {
+      console.log(`Looping over ${item.type}`);
+      //increment the type by one
+      totals[item.type] = totals[item.type] + 1 || 1;
+      //totals.shirt ? totals.shirt + 1 : totals.shirt = 1;
+      //return the totals so the next loop can use it
+      return totals;
+    }
+
+    const inventoryCounts = inventory.reduce(inventoryReducer, {});
+    console.log(inventoryCounts);
+
+    const totalInventoryPrice = inventory.reduce((acc, item) => acc + item.price, 0);
+    console.log(totalInventoryPrice);
 
   </script>
 </body>
