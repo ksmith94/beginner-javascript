@@ -16,19 +16,36 @@ butts.removeEventListener('click', handleClick);
 // Listen on multiple items
 const buyButtons = document.querySelectorAll('button.buy');
 
-function buyItem() {
-  console.log('BUYING ITEM');
+function handleBuyButtonClick(event) {
+  console.log('You clicked a button');
+  const button = event.target;
+  // console.log(button.textContent);
+  // console.log(parseFloat(event.target.dataset.price));
+  console.log(event.currentTarget);
+  console.log(button);
+  console.log(event.target === event.currentTarget);
+  // stop this event from bubbling up
+  // event.stopPropagation();
 }
 
-function attachListener(buyButton) {
-  console.log('Binding the buy button');
-  buyButton.addEventListener('click', buyItem);
-}
+buyButtons.forEach((buyButton) => {
+  buyButton.addEventListener('click', handleBuyButtonClick);
+});
 
-buyButtons.forEach(attachListener);
+window.addEventListener(
+  'click',
+  (event) => {
+    console.log('You clicked the window!');
+    console.log(event.type);
+    console.log(event.bubbles);
+    // event.stopPropagation();
+  },
+  { capture: true },
+);
 
-// buyButtons.forEach((button) => {
-//   button.addEventListener('click', () => {
-//     console.log('You clicked it!');
-//   });
-// });
+const photoEl = document.querySelector('.photo');
+
+photoEl.addEventListener('mouseenter', (e) => {
+  console.log(e.currentTarget);
+  console.log(this);
+});
