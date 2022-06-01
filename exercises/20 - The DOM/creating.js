@@ -66,4 +66,4 @@ li5.insertAdjacentElement('beforebegin', li4);
 
 const li2 = document.createElement('li');
 li2.textContent = 'two';
-li1.insertAdjacentElement('afterend', li2);
+li1.insertAdjacentElement('afterend', li2); 
