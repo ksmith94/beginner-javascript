@@ -9,7 +9,75 @@
 </head>
 
 <body>
+  <script>
 
+    class Food {
+      constructor(name) {
+        this.name = name;
+      }
+      edible = true;
+    }
+    // Classes can only extend one other class
+    class Pizza extends Food {
+      constructor(toppings = [], customer) {
+        // Must call this first
+        super('pizza'); //passes into any classes that your class is a part of
+        // computed instance properties
+        this._toppings = toppings;
+        this.customer = customer;
+      }
+
+      // default instance property
+      slices = 10;
+      // No: Pizza.slices
+      // Yes: pepperoniPizza.slices
+
+      // prototype method
+      // almost always want to use this - efficient for memory and performance
+      eat() {
+        if(this.slices > 0) {
+          this.slices = this.slices - 1;
+          console.log(`CHOMP! You now have ${this.slices} slices left`);
+        } else {
+          console.log(`Sorry! No slices left`);
+        }
+      }
+      // don't do this! - bad for memory
+      // instance method
+      hi = () => {
+        console.log('Hiiii');
+      } 
+
+      // Accessors: Get and Set || Getter and Setter
+      get myToppings() {
+        return this._toppings.map(el => el.toUpperCase());
+      }
+
+      set myToppings(toppings) {
+        const result = toppings.map(el => el.toLowerCase());
+        this._toppings = result;
+      }
+
+      // Static Methods -> Always utilities
+      // Doesn't Exist on instances
+
+      // Yes: Pizza.MAX_THICKNESS
+      // No: pepperoniPizza.MAX_THICKNESS
+      static MAX_THICKNESS = 0.25;
+
+      static isPizza(object) {
+        return object.type === 'pizza';
+      }
+
+      #upSellCustomer = true;
+      
+    }
+
+    
+
+    const pepperoniPizza = new Pizza(['Pepperoni'], 'Wes Bos');
+    const canadianPizza = new Pizza(['pepperoni', 'mushrooms', 'onion'], 'Kait Bos');
+  </script>
 </body>
 
 </html>
