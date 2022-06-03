@@ -1,4 +1,5 @@
 function Slider(slider) {
+  // eslint-disable-next-line no-undef
   if (!(slider instanceof Element)) {
     throw new Error('No slider passed in');
   }
@@ -41,7 +42,7 @@ Slider.prototype.move = function (direction) {
     // make a new array of the new values, and destructure them over and into the prev,
     // current, and next variables
     [this.prev, this.current, this.next] = [
-      // get the prev slide, if there is none get the laste slide from the entire slider for 
+      // get the prev slide, if there is none get the laste slide from the entire slider for
       // wrapping
       this.prev.previousElementSibling || this.slides.lastElementChild,
       this.prev,
@@ -59,16 +60,19 @@ Slider.prototype.move = function (direction) {
   this.applyClasses();
 };
 
+// eslint-disable-next-line no-undef
 const mySlider = new Slider(document.querySelector('.slider'));
+// eslint-disable-next-line no-undef
 const dogSlider = new Slider(document.querySelector('.dog-slider'));
 
 console.log(mySlider, dogSlider);
 
-window.addEventListener('keyup', function (e) {
-  if(e.key === 'ArrowRight') {
+// eslint-disable-next-line no-undef
+window.addEventListener('keyup', (e) => {
+  if (e.key === 'ArrowRight') {
     dogSlider.move();
   }
-  if(e.key === 'ArrowLeft') {
+  if (e.key === 'ArrowLeft') {
     dogSlider.move('back');
   }
 });
