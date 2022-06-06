@@ -1,3 +1,23 @@
 {
-  "firstName": "Kevin"  
+  "firstName": "Kevin",
+  "lastName": "Smith",
+  "age": 27,
+  "siblings": [
+    {
+      "firstName": "Moira",
+      "lastName": "Smith",
+      "age": 30
+    },
+    {
+      "firstName": "Colleen",
+      "lastName": "Smith",
+      "age": 30
+    },
+    {
+      "firstName": "Juliette",
+      "lastName": "Smith",
+      "age": 30
+    }
+  ],
+  "test": null
 }
