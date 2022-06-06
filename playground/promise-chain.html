@@ -47,6 +47,29 @@
 
     const go = document.querySelector('.go');
 
+    async function animate2(e) {
+      const el = e.currentTarget;  
+      // 1. Change the text to GO when clicked
+      el.textContent = 'Go'; 
+      // 2. Make it a circle after two seconds
+      await wait(200);
+      el.classList.add('circle');
+      await wait(500);
+      // 3. Make it red after .5s
+      el.classList.add('red');
+      await wait(250);
+      // make it a square
+      el.classList.remove('circle');
+      await wait(500);
+      //make it purple
+      el.classList.remove('red');
+      el.classList.add('purple');
+      await wait(500);
+      // make it fade
+      el.classList.add('fadeOut');
+      await wait(500); 
+    }
+
     function animate(e) {
       const el = e.currentTarget;  
       // 1. Change the text to GO when clicked
@@ -80,7 +103,7 @@
       }); 
     }
 
-    go.addEventListener('click', animate);
+    go.addEventListener('click', animate2);
 
 
     go.addEventListener('clickXXXX', function go(e) {  
