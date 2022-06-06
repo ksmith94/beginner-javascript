@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Defining Functions</title>
+  <link rel="stylesheet" href="../base.css">
+</head>
+
+<body>
+  <script>
+    /*
+    Function Declaration vs Function Expression
+
+    Declaration: Uses a keyword as first word in statement,
+    sets an identifier, sets the type, and store a value
+
+    Examples:
+    const name = 'Kevin';
+    let age;
+    function sayHi() {...};
+
+    Expression: An expression is any valid unit of code that resolves to a value
+
+    Examples:
+    1 + 1;
+    'abc' + 'def';
+    */
+
+    // Declaring a function
+    function sayHi() {
+        console.log('Hi1');
+    }
+
+    sayHi();
+
+    //Error - Bad Declaration
+    // function () {
+    //     console.log('Hi2');
+    // }
+
+    // Grouping Operator
+    console.log((1 + 1) / 2);
+
+    // Grouping operator with an anonymous function
+    (function() {
+        console.log('Hi3');
+    });
+
+    // IIFE - Immediately Invoked Function Expression
+    (function() {
+        console.log('Hi4');
+    })();
+
+    (function(name) {
+        console.log(`Hi ${name}!`);
+    })('Kevin');
+
+    // Arrow functions
+    () => console.log('Hi5');
+
+    () => console.log('Hi6')();
+
+    (() => console.log('Hi7'))();
+
+    console.log(function() {}, 'hi8');
+
+
+  </script>
+</body>
