@@ -59,6 +59,7 @@
       console.log(hottie, garbagePail, hamAndCheese);
     })
 
+    // .race => returns only the first promise to be fulfilled
     const firstPizzaPromise = Promise.race([pizzaPromise1, pizzaPromise2, pizzaPromise3]);
 
     firstPizzaPromise.then(pizza => {
