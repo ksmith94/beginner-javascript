@@ -1,0 +1,17 @@
+{
+  "name": "dadjokes",
+  "version": "1.0.0",
+  "main": "jokes.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "npx parcel index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "parcel": "^2.6.0"
+  }
+}
