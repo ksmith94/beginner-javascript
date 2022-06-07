@@ -41,7 +41,6 @@ async function fetchAndDisplay(query) {
 async function handleSubmit(event) {
   event.preventDefault();
   const el = event.currentTarget;
-  console.log(event.currentTarget);
   fetchAndDisplay(el.query.value);
 }
 
