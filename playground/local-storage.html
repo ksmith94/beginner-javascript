@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <h1>Todos in console</h1>
+  <script>
+    const dbName = 'todos-vanillajs';
+    const todos = getAllTodos();
+    // {title: "learn", completed: false, id: 1654786467210}
+
+    function createTodo(title) {
+      const id = new Date().getTime();
+      todos.push({
+        title,
+        completed: false,
+        id,
+      });
+    }
+
+    function updateDB() {
+      const dbAsString = JSON.stringify(todos);
+      localStorage.setItem(dbName, dbAsString);
+    }
+    
+    function getAllTodos() {
+      const dbAsJSON = localStorage.getItem(dbName);
+      if (dbAsJSON) {
+        const dbAsArray = JSON.parse(dbAsJSON);
+        return dbAsArray;
+      } else{
+          return [];
+      }
+    }
+
+    function listAllTodos() {
+      todos.forEach(todo => console.log(todo.title));
+    }
+
+    function updateTodo(id, newTitle) {
+      for (let i = 0; i < todos.length; i++) {
+        if (todos[i].id === id) {
+          todos[i].title = newTitle;
+          break;
+        }
+      }
+    }
+
+    function deleteTodo(id) {
+      for (let i = 0; i < todos.length; i++) {
+        if (todos[i].id === id) {
+          if (i === 0) {
+            todos.shift();
+          } else if (i === todos.length - 1) {
+              todos.pop();
+          } else {
+              todos = [
+                ...todos.slice(0, i),
+                ...todos.slice(i + 1)
+              ];
+          }
+          break;
+        }
+      }
+    }
+
+  </script>
+</body>
+</html>
